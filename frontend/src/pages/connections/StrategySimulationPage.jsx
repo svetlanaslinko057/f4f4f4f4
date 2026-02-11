@@ -331,26 +331,30 @@ export default function StrategySimulationPage() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-8 animate-fade-in-up">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-              <LineChart className="w-6 h-6 text-purple-500" />
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/30">
+                <LineChart className="w-7 h-7 text-white" />
+              </div>
               Strategy Simulation
             </h1>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+            <p className="text-gray-500 dark:text-gray-400 text-sm mt-2 ml-15">
               Backtest different influencer-following strategies to find what works best
             </p>
           </div>
         </div>
 
         {/* How It Works Section */}
-        <HowItWorksSection />
+        <div className="animate-fade-in-up stagger-1">
+          <HowItWorksSection />
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Strategies List */}
-          <div className="space-y-4">
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-              <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+          <div className="space-y-4 animate-fade-in-up stagger-2">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-2 flex items-center gap-2 section-header">
                 <Target className="w-5 h-5 text-purple-500" />
                 Choose a Strategy
               </h2>
