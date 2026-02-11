@@ -136,13 +136,15 @@ export default function AltSeasonPage() {
     <div className="min-h-screen bg-gray-50 p-6" data-testid="alt-season-page">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-8 animate-fade-in-up">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
-              <Target className="w-8 h-8 text-orange-600" />
+              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/30">
+                <Target className="w-7 h-7 text-white" />
+              </div>
               Alt Season Monitor
             </h1>
-            <p className="text-gray-500 mt-1">
+            <p className="text-gray-500 mt-2 ml-15">
               Market state, opportunities, and alt season probability
             </p>
           </div>
@@ -150,7 +152,7 @@ export default function AltSeasonPage() {
             <Link to="/connections/clusters">
               <Button
                 variant="outline"
-                className="border-purple-300 text-purple-600 hover:bg-purple-50"
+                className="border-purple-300 text-purple-600 hover:bg-purple-50 hover:scale-105 active:scale-95 transition-all duration-200"
                 data-testid="clusters-link"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -160,7 +162,7 @@ export default function AltSeasonPage() {
             <Button
               onClick={fetchData}
               disabled={loading}
-              className="bg-orange-600 hover:bg-orange-700 text-white"
+              className="bg-orange-600 hover:bg-orange-700 text-white hover:shadow-lg hover:shadow-orange-500/30 hover:scale-105 active:scale-95 transition-all duration-200"
               data-testid="refresh-btn"
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <RefreshCw className="w-4 h-4" />}
@@ -172,7 +174,7 @@ export default function AltSeasonPage() {
         {/* Top Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {/* Alt Season Probability Card */}
-          <Card className={`${aspConfig.bg} border-0 shadow-sm`}>
+          <Card className={`${aspConfig.bg} border-0 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in-up stagger-1`}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
@@ -183,7 +185,7 @@ export default function AltSeasonPage() {
                 </div>
                 <AspIcon className={`w-6 h-6 ${aspConfig.text}`} />
               </div>
-              <div className={`text-4xl font-bold ${aspConfig.text}`}>
+              <div className={`text-4xl font-bold ${aspConfig.text} stat-number`}>
                 {altSeason ? `${(altSeason.asp * 100).toFixed(0)}%` : '--'}
               </div>
               <div className="mt-2">
