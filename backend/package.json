@@ -26,6 +26,7 @@
     "fastify": "^5.7.4",
     "ioredis": "^5.9.2",
     "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.1.0",
     "mongoose": "^9.1.6",
     "openai": "^6.18.0",
     "uuid": "^13.0.0",
