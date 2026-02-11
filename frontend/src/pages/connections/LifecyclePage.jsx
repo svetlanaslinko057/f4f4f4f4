@@ -96,25 +96,33 @@ const ERP_CONFIG = {
     bg: 'bg-gradient-to-r from-red-500 to-rose-600', 
     text: 'text-white', 
     icon: Flame,
-    desc: 'Rotation happening NOW. High confidence signal.'
+    desc: 'Rotation happening NOW. High confidence signal.',
+    formula: 'ERP > 80%: Immediate capital flow detected. Strong volume + funding divergence.',
+    action: '🔥 ACT NOW - High probability rotation in progress'
   },
   BUILDING: { 
     bg: 'bg-gradient-to-r from-orange-500 to-amber-500', 
     text: 'text-white', 
     icon: Zap,
-    desc: 'Rotation building momentum. Watch closely.'
+    desc: 'Rotation building momentum. Watch closely.',
+    formula: 'ERP 60-80%: Accumulating signals. Volume shifting, funding starting to diverge.',
+    action: '⚡ PREPARE - Position for upcoming rotation'
   },
   WATCH: { 
     bg: 'bg-gradient-to-r from-yellow-400 to-amber-400', 
     text: 'text-gray-900', 
     icon: Eye,
-    desc: 'Early rotation signals detected. Monitor development.'
+    desc: 'Early rotation signals detected. Monitor development.',
+    formula: 'ERP 40-60%: Early indicators present. Monitor for confirmation.',
+    action: '👁️ MONITOR - Watch for signal strengthening'
   },
   IGNORE: { 
     bg: 'bg-gray-200', 
     text: 'text-gray-600', 
     icon: Shield,
-    desc: 'No significant rotation detected.'
+    desc: 'No significant rotation detected.',
+    formula: 'ERP < 40%: No significant divergence. Normal market behavior.',
+    action: '🛡️ HOLD - No rotation signal'
   },
 };
 
