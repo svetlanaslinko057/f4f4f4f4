@@ -210,14 +210,14 @@ export default function ClusterAttentionPage() {
                       >
                         <div className="flex items-center justify-between mb-3">
                           <Badge className="bg-purple-100 text-purple-700 border-0">
-                            {cluster.metrics.size} members
+                            {cluster.metrics?.size || cluster.members?.length || 0} members
                           </Badge>
                           <span className="text-xs text-gray-500">
-                            Cohesion: {(cluster.metrics.cohesion * 100).toFixed(0)}%
+                            Cohesion: {((cluster.metrics?.cohesion || 0) * 100).toFixed(0)}%
                           </span>
                         </div>
                         <div className="flex flex-wrap gap-2">
-                          {cluster.members.map((member) => (
+                          {(cluster.members || []).map((member) => (
                             <span
                               key={member}
                               className="px-2 py-1 bg-white border border-gray-200 rounded text-xs text-gray-700 hover:border-purple-400 hover:bg-purple-50 transition-colors duration-200"
@@ -227,7 +227,7 @@ export default function ClusterAttentionPage() {
                           ))}
                         </div>
                         <div className="mt-3 pt-3 border-t border-gray-200 flex justify-between text-xs text-gray-500">
-                          <span>Authority: {cluster.metrics.authority.toFixed(1)}</span>
+                          <span>Authority: {(cluster.metrics?.authority || 0).toFixed(1)}</span>
                           <span>Trust: {(cluster.metrics.avgTrust * 100).toFixed(0)}%</span>
                         </div>
                       </div>
