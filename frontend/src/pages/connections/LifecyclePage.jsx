@@ -495,8 +495,19 @@ export default function LifecyclePage() {
                         <ArrowRight className="w-5 h-5 text-orange-500" />
                         <span className="font-bold text-lg">{rot.toCluster}</span>
                       </div>
-                      <Tooltip content={config.desc}>
-                        <span className={`px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-1.5 ${config.bg} ${config.text}`}>
+                      <Tooltip content={
+                        <div>
+                          <div className="font-bold mb-1">{rot.class}</div>
+                          <p className="text-xs text-gray-300 mb-2">{config.desc}</p>
+                          <div className="border-t border-gray-600 pt-2 mt-2">
+                            <div className="text-xs text-blue-300 font-mono">{config.formula}</div>
+                          </div>
+                          <div className="mt-2 pt-2 border-t border-gray-600">
+                            <span className="text-xs font-semibold">{config.action}</span>
+                          </div>
+                        </div>
+                      }>
+                        <span className={`px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-1.5 ${config.bg} ${config.text} cursor-help`}>
                           <Icon className="w-4 h-4" />
                           {rot.class}
                         </span>
@@ -506,7 +517,17 @@ export default function LifecyclePage() {
                     {/* ERP Progress */}
                     <div className="mb-3">
                       <div className="flex items-center justify-between text-sm mb-1">
-                        <span className="text-gray-500 dark:text-gray-400">ERP Score</span>
+                        <Tooltip content={
+                          <div>
+                            <div className="font-bold mb-1">ERP Score Formula</div>
+                            <p className="text-xs text-gray-300">ERP = 0.25×(vol_divergence) + 0.25×(funding_diff) + 0.2×(OI_flow) + 0.15×(price_momentum) + 0.15×(liquidation_ratio)</p>
+                            <div className="mt-2 text-xs">Higher score = stronger rotation signal</div>
+                          </div>
+                        }>
+                          <span className="text-gray-500 dark:text-gray-400 cursor-help flex items-center gap-1">
+                            ERP Score <Info className="w-3 h-3" />
+                          </span>
+                        </Tooltip>
                         <span className="font-bold text-orange-600">{(rot.erp * 100).toFixed(0)}%</span>
                       </div>
                       <div className="h-3 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
@@ -519,19 +540,38 @@ export default function LifecyclePage() {
                     
                     {/* Metrics */}
                     <div className="flex gap-4 text-sm">
-                      <Tooltip content="Current volatility level of the rotation pair">
+                      <Tooltip content={
+                        <div>
+                          <div className="font-bold mb-1">Volatility Level</div>
+                          <p className="text-xs text-gray-300">Price volatility compression/expansion.</p>
+                          <div className="mt-1 text-xs">
+                            <span className="text-green-400">compressed</span> = Ready to expand<br/>
+                            <span className="text-yellow-400">normal</span> = Stable<br/>
+                            <span className="text-red-400">extreme</span> = High risk
+                          </div>
+                        </div>
+                      }>
                         <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400 cursor-help">
                           <Activity className="w-3.5 h-3.5" />
                           Vol: {rot.notes?.volatility || 'N/A'}
                         </div>
                       </Tooltip>
-                      <Tooltip content="Funding rate difference between clusters">
+                      <Tooltip content={
+                        <div>
+                          <div className="font-bold mb-1">Funding Divergence</div>
+                          <p className="text-xs text-gray-300">Funding rate difference.</p>
+                          <div className="mt-1 text-xs">
+                            <span className="text-red-400">negative_extreme</span> = Heavy shorts<br/>
+                            <span className="text-green-400">positive_extreme</span> = Heavy longs
+                          </div>
+                        </div>
+                      }>
                         <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400 cursor-help">
                           <DollarSign className="w-3.5 h-3.5" />
                           Fund: {rot.notes?.funding || 'N/A'}
                         </div>
                       </Tooltip>
-                      <Tooltip content="Growth opportunity in target cluster">
+                      <Tooltip content="Expected growth potential in target cluster">
                         <div className="flex items-center gap-1 text-green-600 font-medium cursor-help">
                           <TrendingUp className="w-3.5 h-3.5" />
                           {rot.notes?.opportunityGrowth || 'N/A'}
