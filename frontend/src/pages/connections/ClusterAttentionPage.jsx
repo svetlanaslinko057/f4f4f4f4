@@ -415,9 +415,9 @@ export default function ClusterAttentionPage() {
                         </Badge>
                       </div>
                       <div className="flex justify-between text-xs text-gray-500">
-                        <span>Return: {(align.priceReturn * 100).toFixed(2)}%</span>
-                        <span>Impact: {align.impact.toFixed(2)}</span>
-                        <span>Score: {align.alignmentScore.toFixed(2)}</span>
+                        <span>Return: {((align.priceReturn || 0) * 100).toFixed(2)}%</span>
+                        <span>Impact: {(align.impact || 0).toFixed(2)}</span>
+                        <span>Score: {(align.alignmentScore || 0).toFixed(2)}</span>
                       </div>
                     </div>
                   ))}
