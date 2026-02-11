@@ -167,3 +167,37 @@
 3. **Farm Network** - gradient purple/pink icon, slider accent color
 4. **Strategy Simulation** - gradient purple/indigo icon, strategy cards
 5. **Alt Season Monitor** - gradient orange/amber icon, opportunity cards
+
+---
+
+## Data Seeding (Feb 11, 2026)
+
+### MongoDB Collections Populated
+- **twitter_accounts**: 300 accounts
+  - VCs (30): a16z, paradigm, sequoia, binancelabs, polychain...
+  - KOLs (50): cobie, hsaka, pentoshi, raoulpal, willywoo, planb...
+  - Founders (40): vitalikbuterin, cz_binance, brian_armstrong, saylor...
+  - Analysts (30): lookonchain, coindesk, glassnode, nansen_ai...
+  - Degens/Traders (150): generated accounts with realistic metrics
+
+- **connections_follow_graph**: 12,000+ edges
+- **influencer_clusters**: 5 clusters (VC_ELITE, KOL_ALPHA, FOUNDER_CIRCLE, ANALYST_HUB, DEGEN_ARMY)
+- **cluster_token_momentum**: 30 tokens with score/classification
+- **lifecycle_assets**: 15 assets with phase data
+- **farm_overlap_edges**: 139 edges
+- **connections_unified_accounts**: 35 accounts for Influencers tab
+
+### Data Quality
+- Realistic follower counts (5K - 170M range)
+- Proper tier distribution (S: 10%, A: 25%, B: 35%, C: 30%)
+- Token mentions based on category
+- Trust scores based on category multipliers
+- Bot probability correlated with tier
+
+### All Tabs Verified
+1. **Influencers** ✅ - 35 accounts with scores
+2. **Graph** ✅ - 19 nodes, 37 edges for @cobie
+3. **Clusters** ✅ - 5 clusters with momentum data
+4. **Lifecycle** ✅ - 8 assets, 6 clusters, 2 rotations
+5. **Farm Network** ✅ - 30 nodes, 126 edges
+6. **Strategy Sim** ✅ - 4 strategies with metrics
