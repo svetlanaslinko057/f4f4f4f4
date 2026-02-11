@@ -76,6 +76,23 @@
 - Compare режим
 - Table view
 
+### 6. Lifecycle Analytics ✅ ENHANCED (Feb 11, 2026)
+**Назначение:** Анализ жизненного цикла активов и кластеров
+
+**Улучшения (новые):**
+- **Enhanced Tooltips с формулами** на всех элементах:
+  - ERP Score formula: `ERP = 0.25×(vol_divergence) + 0.25×(funding_diff) + 0.2×(OI_flow) + 0.15×(price_momentum) + 0.15×(liquidation_ratio)`
+  - Phase formulas для ACCUMULATION, IGNITION, EXPANSION, DISTRIBUTION
+- **ERP Status badges** (IMMINENT, BUILDING, WATCH, IGNORE) с детальными тултипами
+- **Volatility & Funding tooltips** с объяснением значений
+- **Phase Detection Logic** секция внизу с hover-тултипами и формулами
+- **Color-coded legend** для A, I, E, D scores
+
+**Данные:** 
+- 8 assets: ONDO, SOL, RNDR (Ignition), FET, TAO (Accumulation), PENDLE, AGIX (Expansion), + Distribution
+- 6 clusters: MEME, L2, RWA, DEFI, AI, GAMING
+- 2 rotation signals: GAMING→AI (BUILDING 68%), DEFI→RWA (WATCH 55%)
+
 ## Key API Endpoints
 - `GET /api/connections/network/farm-graph` - граф бот-ферм
 - `GET /api/connections/network/actor/:actorId` - детали актора
@@ -86,6 +103,9 @@
 - `GET /api/connections/radar/accounts` - radar accounts
 - `GET /api/alt-season` - данные альтсезона
 - `GET /api/connections/simulation/strategies` - стратегии симуляции
+- `GET /api/connections/lifecycle` - lifecycle assets
+- `GET /api/connections/cluster-lifecycle` - lifecycle clusters
+- `GET /api/connections/early-rotation/active` - rotation signals
 
 ## MongoDB Collections (Seeded Data)
 - `twitter_accounts` - 22 accounts (VCs, KOLs, Analysts, Founders)
@@ -106,6 +126,7 @@
 - Farm Network Modal: ✅
 - Cluster Attention: ✅
 - Early Signal Radar: ✅
+- Lifecycle Analytics (Enhanced): ✅
 
 ## Backlog / Next Tasks
 - [ ] Подключить реальные Twitter данные через парсер
@@ -116,6 +137,6 @@
 - [ ] Fix duplicate route warnings in backend
 
 ## User Personas
-- **Traders:** Strategy Simulation + Alt Season + Cluster Attention для выбора entry points
+- **Traders:** Strategy Simulation + Alt Season + Cluster Attention + Lifecycle для выбора entry points
 - **Researchers:** Farm Network + Early Signal Radar для анализа манипуляций
 - **Admins:** Farm Network + Cluster Attention для выявления координированных атак
