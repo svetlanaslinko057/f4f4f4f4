@@ -228,7 +228,7 @@ export default function ClusterAttentionPage() {
                         </div>
                         <div className="mt-3 pt-3 border-t border-gray-200 flex justify-between text-xs text-gray-500">
                           <span>Authority: {(cluster.metrics?.authority || 0).toFixed(1)}</span>
-                          <span>Trust: {(cluster.metrics.avgTrust * 100).toFixed(0)}%</span>
+                          <span>Trust: {((cluster.metrics?.avgTrust || 0) * 100).toFixed(0)}%</span>
                         </div>
                       </div>
                     ))}
