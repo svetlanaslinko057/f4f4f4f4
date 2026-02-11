@@ -368,12 +368,12 @@ export default function ClusterAttentionPage() {
                           cred.score >= 0.4 ? 'bg-yellow-100 text-yellow-700' :
                           'bg-red-100 text-red-700'
                         }>
-                          {(cred.score * 100).toFixed(0)}%
+                          {((cred.score || 0) * 100).toFixed(0)}%
                         </Badge>
                       </div>
                       <div className="flex justify-between text-xs text-gray-500">
-                        <span>Confirmation: {(cred.confirmationRate * 100).toFixed(0)}%</span>
-                        <span>Events: {cred.totalEvents}</span>
+                        <span>Confirmation: {((cred.confirmationRate || 0) * 100).toFixed(0)}%</span>
+                        <span>Events: {cred.totalEvents || 0}</span>
                       </div>
                     </div>
                   ))}
