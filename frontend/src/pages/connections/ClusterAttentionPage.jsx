@@ -130,13 +130,15 @@ export default function ClusterAttentionPage() {
     <div className="min-h-screen bg-gray-50 p-6" data-testid="cluster-attention-page">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-8 animate-fade-in-up">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
-              <Network className="w-8 h-8 text-purple-600" />
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/30">
+                <Network className="w-7 h-7 text-white" />
+              </div>
               Cluster Attention
             </h1>
-            <p className="text-gray-500 mt-1">
+            <p className="text-gray-500 mt-2 ml-15">
               Coordinated influencer activity detection
             </p>
           </div>
@@ -145,7 +147,7 @@ export default function ClusterAttentionPage() {
               onClick={loadData}
               disabled={loading}
               variant="outline"
-              className="border-gray-300"
+              className="border-gray-300 hover:scale-105 active:scale-95 transition-all duration-200"
               data-testid="refresh-btn"
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <RefreshCw className="w-4 h-4" />}
@@ -154,7 +156,7 @@ export default function ClusterAttentionPage() {
             <Button
               onClick={rebuildClusters}
               disabled={rebuilding}
-              className="bg-purple-600 hover:bg-purple-700 text-white"
+              className="bg-purple-600 hover:bg-purple-700 text-white hover:shadow-lg hover:shadow-purple-500/30 hover:scale-105 active:scale-95 transition-all duration-200"
               data-testid="rebuild-btn"
             >
               {rebuilding ? <Loader2 className="w-4 h-4 animate-spin" /> : <Zap className="w-4 h-4" />}
@@ -163,7 +165,7 @@ export default function ClusterAttentionPage() {
             <Link to="/connections/alt-season">
               <Button
                 variant="outline"
-                className="border-orange-300 text-orange-600 hover:bg-orange-50"
+                className="border-orange-300 text-orange-600 hover:bg-orange-50 hover:scale-105 active:scale-95 transition-all duration-200"
                 data-testid="alt-season-link"
               >
                 <TrendingUp className="w-4 h-4" />
@@ -175,7 +177,7 @@ export default function ClusterAttentionPage() {
         </div>
 
         {error && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 flex items-center gap-3 text-red-700">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 flex items-center gap-3 text-red-700 animate-fade-in-scale">
             <AlertTriangle className="w-5 h-5" />
             <span>{error}</span>
           </div>
