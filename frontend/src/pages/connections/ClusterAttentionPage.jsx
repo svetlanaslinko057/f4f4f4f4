@@ -285,7 +285,7 @@ export default function ClusterAttentionPage() {
                           <div className="text-right">
                             <div className="text-sm text-gray-500">Score</div>
                             <div className="font-bold text-lg text-gray-900">
-                              {item.momentumScore.toFixed(2)}
+                              {(item.momentumScore || 0).toFixed(2)}
                             </div>
                           </div>
                           <Badge className={MOMENTUM_COLORS[item.level]}>
