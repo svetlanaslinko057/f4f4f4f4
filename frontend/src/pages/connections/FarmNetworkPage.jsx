@@ -99,22 +99,22 @@ function FarmGroupsPanel({ farms, onSelectFarm }) {
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
         {farms.map((farm, idx) => (
           <div
-            key={farm.farmId}
+            key={farm.farmId || idx}
             onClick={() => onSelectFarm(farm)}
             className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 cursor-pointer hover:shadow-md hover:scale-[1.02] transition-all border-l-4"
             style={{ borderLeftColor: FARM_COLORS[farm.farmId] || FARM_COLORS.default }}
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="font-medium text-sm text-gray-900 dark:text-white">{farm.name}</span>
+              <span className="font-medium text-sm text-gray-900 dark:text-white">{farm.name || 'Unknown Farm'}</span>
               <span className={`text-xs px-2 py-0.5 rounded ${farm.riskLevel === 'HIGH' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'}`}>
-                {farm.riskLevel}
+                {farm.riskLevel || 'MEDIUM'}
               </span>
             </div>
             <div className="text-xs text-gray-500 dark:text-gray-400">
-              {farm.memberCount} members
+              {farm.memberCount || (farm.members?.length || 0)} members
             </div>
             <div className="mt-2 flex flex-wrap gap-1">
-              {farm.members.slice(0, 3).map(m => (
+              {(farm.members || []).slice(0, 3).map(m => (
                 <a
                   key={m}
                   href={`https://twitter.com/${m}`}
@@ -126,7 +126,7 @@ function FarmGroupsPanel({ farms, onSelectFarm }) {
                   @{m}
                 </a>
               ))}
-              {farm.members.length > 3 && (
+              {(farm.members || []).length > 3 && (
                 <span className="text-xs text-gray-400">+{farm.members.length - 3}</span>
               )}
             </div>
