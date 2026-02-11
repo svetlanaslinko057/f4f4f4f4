@@ -185,10 +185,10 @@ export default function ClusterAttentionPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Clusters Panel */}
-          <div className="lg:col-span-1">
-            <Card className="bg-white border-gray-200 shadow-sm">
+          <div className="lg:col-span-1 animate-fade-in-up stagger-1">
+            <Card className="bg-white border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="border-b border-gray-100">
-                <CardTitle className="flex items-center gap-2 text-gray-900">
+                <CardTitle className="flex items-center gap-2 text-gray-900 section-header">
                   <Users className="w-5 h-5 text-blue-600" />
                   Influencer Clusters
                 </CardTitle>
@@ -202,10 +202,10 @@ export default function ClusterAttentionPage() {
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    {clusters.map((cluster) => (
+                    {clusters.map((cluster, idx) => (
                       <div
                         key={cluster.id}
-                        className="bg-gray-50 rounded-lg p-4 border border-gray-200"
+                        className={`bg-gray-50 rounded-lg p-4 border border-gray-200 hover:shadow-md hover:border-purple-300 transition-all duration-300 animate-fade-in-up stagger-${idx + 1}`}
                         data-testid={`cluster-${cluster.id}`}
                       >
                         <div className="flex items-center justify-between mb-3">
@@ -220,7 +220,7 @@ export default function ClusterAttentionPage() {
                           {cluster.members.map((member) => (
                             <span
                               key={member}
-                              className="px-2 py-1 bg-white border border-gray-200 rounded text-xs text-gray-700"
+                              className="px-2 py-1 bg-white border border-gray-200 rounded text-xs text-gray-700 hover:border-purple-400 hover:bg-purple-50 transition-colors duration-200"
                             >
                               @{member}
                             </span>
@@ -239,10 +239,10 @@ export default function ClusterAttentionPage() {
           </div>
 
           {/* Momentum Panel */}
-          <div className="lg:col-span-2">
-            <Card className="bg-white border-gray-200 shadow-sm">
+          <div className="lg:col-span-2 animate-fade-in-up stagger-2">
+            <Card className="bg-white border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="border-b border-gray-100">
-                <CardTitle className="flex items-center gap-2 text-gray-900">
+                <CardTitle className="flex items-center gap-2 text-gray-900 section-header">
                   <TrendingUp className="w-5 h-5 text-green-600" />
                   Coordinated Momentum
                 </CardTitle>
