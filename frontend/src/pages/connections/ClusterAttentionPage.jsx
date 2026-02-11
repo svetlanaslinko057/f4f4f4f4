@@ -25,6 +25,7 @@ const API_BASE = process.env.REACT_APP_BACKEND_URL || '';
 const MOMENTUM_COLORS = {
   PUMP_LIKE: 'bg-red-500 text-white',
   MOMENTUM: 'bg-orange-500 text-white',
+  BUILDING: 'bg-blue-500 text-white',
   ATTENTION: 'bg-yellow-500 text-gray-900',
   BACKGROUND: 'bg-gray-300 text-gray-700',
 };
@@ -32,6 +33,7 @@ const MOMENTUM_COLORS = {
 const MOMENTUM_DOT_COLORS = {
   PUMP_LIKE: 'bg-red-500',
   MOMENTUM: 'bg-orange-500',
+  BUILDING: 'bg-blue-500',
   ATTENTION: 'bg-yellow-500',
   BACKGROUND: 'bg-gray-400',
 };
@@ -39,6 +41,7 @@ const MOMENTUM_DOT_COLORS = {
 const MOMENTUM_LABELS = {
   PUMP_LIKE: 'Possible Pump',
   MOMENTUM: 'Momentum',
+  BUILDING: 'Building',
   ATTENTION: 'Attention',
   BACKGROUND: 'Background',
 };
