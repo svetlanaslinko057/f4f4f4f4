@@ -140,3 +140,30 @@
 - **Traders:** Strategy Simulation + Alt Season + Cluster Attention + Lifecycle для выбора entry points
 - **Researchers:** Farm Network + Early Signal Radar для анализа манипуляций
 - **Admins:** Farm Network + Cluster Attention для выявления координированных атак
+
+---
+
+## UI/UX Polish (Feb 11, 2026)
+
+### CSS Animations Added (`/app/frontend/src/styles/connections-polish.css`)
+- **fadeInUp** - плавное появление снизу
+- **fadeInScale** - появление с масштабированием
+- **slideInLeft** - скольжение слева
+- **pulseGlow** - пульсирующее свечение
+- **progressFill** - анимация прогресс-баров
+- **countPop** - анимация чисел при наведении
+
+### Visual Enhancements
+- **Gradient headers** с тенями на всех страницах Connections
+- **Card hover effects** (-translate-y-1, shadow увеличение)
+- **Button interactions** (scale-105 на hover, active:scale-95)
+- **Section headers** с фиолетовой полоской слева
+- **Stat numbers** с pop-анимацией при наведении
+- **Staggered animations** для списков (stagger-1...stagger-8)
+
+### Pages Updated
+1. **Lifecycle Analytics** - gradient blue/purple icon, stat-number animations
+2. **Cluster Attention** - gradient purple/indigo icon, cluster card animations
+3. **Farm Network** - gradient purple/pink icon, slider accent color
+4. **Strategy Simulation** - gradient purple/indigo icon, strategy cards
+5. **Alt Season Monitor** - gradient orange/amber icon, opportunity cards
