@@ -348,23 +348,23 @@ export default function LifecyclePage() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900" data-testid="lifecycle-page">
       <div className="max-w-7xl mx-auto px-4 py-6">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-8 animate-fade-in-up">
           <div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                <Activity className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30">
+                <Activity className="w-7 h-7 text-white" />
               </div>
               Lifecycle Analytics
             </h1>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+            <p className="text-gray-500 dark:text-gray-400 text-sm mt-2 ml-15">
               Track asset and cluster lifecycle phases in real-time
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <Tooltip content="Refresh data from exchange APIs">
               <button 
                 onClick={loadData}
-                className="p-2.5 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+                className="p-3 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700 hover:scale-105 active:scale-95 transition-all duration-200 shadow-sm hover:shadow-md"
               >
                 <RefreshCw className="w-5 h-5" />
               </button>
@@ -373,10 +373,10 @@ export default function LifecyclePage() {
         </div>
 
         {/* What is Lifecycle? - Collapsible explanation */}
-        <div className="mb-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+        <div className="mb-8 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 animate-fade-in-up stagger-1">
           <button
             onClick={() => setShowExplanation(!showExplanation)}
-            className="w-full px-5 py-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition"
+            className="w-full px-5 py-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all duration-200"
           >
             <div className="flex items-center gap-3">
               <HelpCircle className="w-5 h-5 text-blue-500" />
