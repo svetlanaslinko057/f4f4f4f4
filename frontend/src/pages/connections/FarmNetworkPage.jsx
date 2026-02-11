@@ -229,20 +229,22 @@ export default function FarmNetworkPage() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-8 animate-fade-in-up">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-              <Network className="w-6 h-6 text-purple-500" />
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/30">
+                <Network className="w-7 h-7 text-white" />
+              </div>
               Farm Network Graph
             </h1>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+            <p className="text-gray-500 dark:text-gray-400 text-sm mt-2 ml-15">
               Shared suspicious followers between influencers
             </p>
           </div>
           <button
             onClick={loadData}
             disabled={loading}
-            className="flex items-center gap-2 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 disabled:opacity-50"
+            className="flex items-center gap-2 px-5 py-2.5 bg-purple-500 text-white rounded-xl hover:bg-purple-600 hover:shadow-lg hover:shadow-purple-500/30 hover:scale-105 active:scale-95 transition-all duration-200 disabled:opacity-50"
           >
             <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
             Refresh
@@ -250,10 +252,12 @@ export default function FarmNetworkPage() {
         </div>
 
         {/* How It Works */}
-        <HowItWorksSection />
+        <div className="animate-fade-in-up stagger-1">
+          <HowItWorksSection />
+        </div>
 
         {/* Controls */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 mb-6 shadow-sm">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-5 mb-6 shadow-sm hover:shadow-md transition-shadow duration-300 animate-fade-in-up stagger-2">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-3">
               <Filter className="w-4 h-4 text-gray-400" />
@@ -265,7 +269,7 @@ export default function FarmNetworkPage() {
                 step="0.05"
                 value={minScore}
                 onChange={(e) => setMinScore(Number(e.target.value))}
-                className="w-32"
+                className="w-32 accent-purple-500"
               />
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300 w-12">
                 {minScore.toFixed(2)}
@@ -273,11 +277,11 @@ export default function FarmNetworkPage() {
             </div>
             <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
               <span className="flex items-center gap-1">
-                <div className="w-3 h-3 rounded-full bg-purple-500" />
+                <div className="w-3 h-3 rounded-full bg-purple-500 shadow-sm shadow-purple-500/50" />
                 Nodes: {data.nodes.length}
               </span>
               <span className="flex items-center gap-1">
-                <div className="w-6 h-0.5 bg-red-500" />
+                <div className="w-6 h-0.5 bg-red-500 shadow-sm shadow-red-500/50" />
                 Edges: {data.edges.length}
               </span>
             </div>
@@ -285,7 +289,7 @@ export default function FarmNetworkPage() {
         </div>
 
         {/* Graph */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden animate-fade-in-up stagger-3">
           {loading ? (
             <div className="h-[600px] flex items-center justify-center">
               <RefreshCw className="w-8 h-8 animate-spin text-purple-500" />
