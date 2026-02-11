@@ -1,0 +1,10 @@
+[
+  {
+    "label": "Parser Slot",
+    "type": "LOCAL_PARSER",
+    "enabled": true,
+    "localParser": { "url": "http://localhost:5001" },
+    "health": { "status": "HEALTHY" },
+    "limits": { "requestsPerHour": 100 }
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "direct-slot",
+    "host": "DIRECT",
+    "port": 0,
+    "status": "ACTIVE",
+    "enabled": true,
+    "type": "DIRECT"
+  }
+]

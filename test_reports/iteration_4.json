@@ -1,0 +1,50 @@
+{
+  "summary": "Tested Actor Details Modal feature for Farm Network Graph interactivity. All critical features working correctly.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "ActorDetailsModal",
+        "issues": ["Backdrop click does not close modal (only X button and footer Close button work)"]
+      }
+    ]
+  },
+  "passed_tests": [
+    "Farm Network page loads correctly with graph (10 nodes) and table",
+    "Clicking actor name in table opens ActorDetailsModal with correct data",
+    "Clicking graph nodes opens ActorDetailsModal",
+    "Modal displays: risk level (LOW/MEDIUM/HIGH/CRITICAL), actor name, summary",
+    "Modal displays: Audience Quality section (AQI, pctBot, pctHuman, pctSuspicious, pctDormant, totalFollowers)",
+    "Modal displays: Authenticity Score with breakdown (realFollowerRatio, audienceQuality, networkIntegrity)",
+    "Modal shows Shared Farm Connections list with clickable actor names (navigates to that actor's details)",
+    "Modal shows Detected Bot Farms section with farm details",
+    "Close button (X) closes the modal",
+    "Footer Close button closes the modal",
+    "API endpoint /api/connections/network/actor/:actorId returns correct data structure",
+    "API returns valid data for test actors: crypto_whale_alerts, moon_signals, gem_hunter_pro"
+  ],
+  "test_report_links": [
+    "/app/backend/tests/test_actor_details.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "MINOR: Backdrop click should close the modal (optional enhancement)"
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_actor_details.py"
+  ],
+  "success_rate": {
+    "backend": "100% (12/12 tests passed)",
+    "frontend": "95% (all critical features work, minor UX issue with backdrop click)"
+  },
+  "seed_data_creation": "No additional seed data created - used existing seed data (10 actors in audience_quality_reports, influencer_authenticity_reports, bot_farms, farm_overlap_edges)",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Actor Details Modal feature fully implemented and tested. Modal opens from both table actor buttons and graph node clicks. All modal sections display correctly: risk level, audience quality metrics, authenticity score with breakdown, farm connections (clickable), and bot farms. Close functionality works via X button and footer Close button.",
+  "rca_of_the_issue": null
+}
