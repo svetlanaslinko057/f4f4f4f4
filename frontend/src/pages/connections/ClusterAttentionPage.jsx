@@ -268,16 +268,16 @@ export default function ClusterAttentionPage() {
                   <div className="space-y-3">
                     {momentum.map((item, idx) => (
                       <div
-                        key={`${item.clusterId}-${item.token}-${idx}`}
-                        className="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-center justify-between"
+                        key={`${item.cluster}-${item.token}-${idx}`}
+                        className="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-center justify-between hover:shadow-md transition-all duration-200"
                         data-testid={`momentum-${item.token}`}
                       >
                         <div className="flex items-center gap-4">
-                          <div className={`w-3 h-3 rounded-full ${MOMENTUM_DOT_COLORS[item.level]}`} />
+                          <div className={`w-3 h-3 rounded-full ${MOMENTUM_DOT_COLORS[item.classification] || 'bg-gray-400'}`} />
                           <div>
                             <span className="font-bold text-lg text-gray-900">{item.token}</span>
                             <span className="text-gray-500 text-sm ml-3">
-                              by {item.uniqueActors} actors
+                              {item.uniqueMentioners || 0} mentioners
                             </span>
                           </div>
                         </div>
@@ -285,11 +285,11 @@ export default function ClusterAttentionPage() {
                           <div className="text-right">
                             <div className="text-sm text-gray-500">Score</div>
                             <div className="font-bold text-lg text-gray-900">
-                              {(item.momentumScore || 0).toFixed(2)}
+                              {(item.score || 0).toFixed(2)}
                             </div>
                           </div>
-                          <Badge className={MOMENTUM_COLORS[item.level]}>
-                            {MOMENTUM_LABELS[item.level]}
+                          <Badge className={MOMENTUM_COLORS[item.classification] || 'bg-gray-100 text-gray-700'}>
+                            {MOMENTUM_LABELS[item.classification] || item.classification}
                           </Badge>
                         </div>
                       </div>
