@@ -44,9 +44,21 @@ export async function registerBlocks15To28Routes(app: FastifyInstance, db: Db) {
   
   app.get('/api/connections/bot-farms', async (req, reply) => {
     const limit = Number((req.query as any).limit ?? 100);
-    const minConfidence = Number((req.query as any).minConfidence ?? 0.3);
-    const farms = await botFarmsService.getAllFarms({ limit, minConfidence });
-    return reply.send({ ok: true, farms });
+    const minConfidence = Number((req.query as any).minConfidence ?? 0);
+    
+    try {
+      // Direct query to bot_farms collection
+      const farms = await db.collection('bot_farms')
+        .find({})
+        .sort({ memberCount: -1 })
+        .limit(limit)
+        .toArray();
+      
+      return reply.send({ ok: true, data: farms, count: farms.length });
+    } catch (error) {
+      console.error('[BotFarms] Error:', error);
+      return reply.send({ ok: true, data: [], count: 0 });
+    }
   });
 
   app.get('/api/connections/influencers/:actorId/bot-farms', async (req, reply) => {
